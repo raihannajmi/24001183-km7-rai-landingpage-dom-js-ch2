@@ -6,12 +6,14 @@
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 
-// Coba olah data ini hehe :)
-console.log(params);
-
-/*
- * Contoh penggunaan DOM di dalam class
- * */
+// Initialize app instance
 const app = new App();
 
-app.init().then(app.run);
+// Add event listener to load button
+app.loadButton.addEventListener("click", () => {
+  app.clear();
+  app.loadFilter().then(app.run());
+});
+
+// Initialize app
+app.init();
